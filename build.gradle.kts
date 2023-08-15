@@ -1,4 +1,5 @@
 plugins {
+    kotlin("jvm") version "1.7.10"
     idea
     java
     id("gg.essential.loom") version "0.10.0.+"
@@ -18,6 +19,13 @@ val modid: String by project
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(8))
 }
+
+kotlin {
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(8))
+    }
+}
+
 
 // Minecraft configuration:
 loom {
@@ -72,6 +80,7 @@ dependencies {
 
     // If you don't want to log in with your real minecraft account, remove this line
     runtimeOnly("me.djtheredstoner:DevAuth-forge-legacy:1.1.2")
+    implementation(kotlin("stdlib-jdk8"))
 
 }
 
